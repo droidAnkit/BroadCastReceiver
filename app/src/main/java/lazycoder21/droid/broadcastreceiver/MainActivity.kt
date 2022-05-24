@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //region local broadcast manager
-    private fun sendCustomLocalBroadcast() {
+    fun sendCustomLocalBroadcast(view: android.view.View) {
         val customBroadcastIntent = Intent(ACTION_CUSTOM_BROADCAST)
         LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent)
 
