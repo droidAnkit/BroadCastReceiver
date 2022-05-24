@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        registerSystemBroadCastReceiver()
+        registerLocalBroadCastReceiver()
     }
 
     //region local broadcast manager
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         val intentFilter = IntentFilter().apply {
             addAction(Intent.ACTION_POWER_DISCONNECTED)
             addAction(Intent.ACTION_POWER_CONNECTED)
+            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         }
 
         //registered using the MainActivity context.
@@ -54,7 +56,8 @@ class MainActivity : AppCompatActivity() {
     //endregion
 
     override fun onDestroy() {
-
+        unRegisterSystemBroadCastReceiver()
+        unRegisterLocalBroadCastReceiver()
         super.onDestroy()
     }
 }

@@ -15,7 +15,8 @@ class CustomReceiver : BroadcastReceiver() {
             Intent.ACTION_POWER_CONNECTED -> context.showToast("Power connected")
             Intent.ACTION_POWER_DISCONNECTED -> context.showToast("Power disconnected")
             CustomReceiver.ACTION_CUSTOM_BROADCAST -> context.showToast("Custom Broadcast")
-
+            Intent.ACTION_HEADSET_PLUG -> context.showToast("Headset plugged in")
+            Intent.ACTION_AIRPLANE_MODE_CHANGED -> context.showToast("airplane mode flipped")
         }
     }
 }
